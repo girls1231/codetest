@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타이머 구현</title>
+  <style>
+    #restart {
+      display: none; 
+    }
+  </style>
+</head>
+<body>
+  <h2>타이머 구현</h2>
+
+  <p>타이머 : <span id="countdown"></span></p>
+
+  <input type="button" value="정답" id="correct">
+  <input type="button" value="오답" id="incorrect">
+  <input type="button" value="start" id="start">
+  <input type="button" value="restart" id="restart">
+
+  <script>
+    const start_btn = document.getElementById('start');
+    const restart_btn = document.getElementById('restart');
+    const countdown = document.querySelector('#countdown');
+    
+    let timerId; 
+    let timerRunning = false; 
+
+    function start(range) {
+      let count = range;
+
+      function updateCountdownDisplay() {
+        let minutes = Math.floor(count / 60);
+        let seconds = count % 60;
+        countdown.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      }
+
+      function timer() {
+        updateCountdownDisplay();
+        if (count > 0) {
+          count--;
+          timerId = setTimeout(timer, 1000);
+        } else {
+          countdown.textContent = '00:00';
+          console.log('타임오버!');
+          timerRunning = false;
+
+          start_btn.removeEventListener('click', startHandler);
+          start_btn.addEventListener('click', timeOutHandler);
+          start_btn.value = "start"; 
+
+          countdown.textContent = "";
+        }
+      }
+
+      function startHandler() {
+        console.log('정답 입니다');
+      }
+
+      function timeOutHandler() {
+        console.log('시간이 초과되었습니다');
+      }
+
+      start_btn.removeEventListener('click', timeOutHandler);
+      start_btn.addEventListener('click', startHandler);
+
+      updateCountdownDisplay();
+      timerRunning = true;
+      timer();
+    }
+
+    start_btn.addEventListener('click', function() {
+      if (timerRunning) {
+        clearTimeout(timerId); 
+      }
+      start(10); 
+      this.style.display = 'none'; 
+      restart_btn.style.display = 'inline';
+    });
+
+    restart_btn.addEventListener('click', function() {
+      if (timerRunning) {
+        clearTimeout(timerId); 
+      }
+      start(5); 
+      this.style.display = 'none'; 
+      start_btn.style.display = 'inline'; 
+    });
+
+    document.getElementById('correct').addEventListener('click', function() {
+      if (timerRunning) {
+        clearTimeout(timerId); 
+      }
+      console.log('정답 입니다');
+      restart.style.display = 'none'; 
+      start_btn.style.display = 'inline'; 
+      countdown.textContent = "";
+    });
+
+    document.getElementById('incorrect').addEventListener('click', function() {
+      if (timerRunning) {
+        clearTimeout(timerId); 
+      }
+      console.log('오답 입니다');
+      restart.style.display = 'none'; 
+      start_btn.style.display = 'inline'; 
+      countdown.textContent = "";
+    });
+  </script>
+</body>
+</html>

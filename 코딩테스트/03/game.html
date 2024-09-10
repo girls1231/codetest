@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>game</title>
+  <script src="./card.js" defer></script>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    ul{
+      padding: 20px;
+      width: 80%;
+      margin: 0 auto;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(4,auto);
+    }
+    li{
+      list-style: none;
+      border: 1px solid black;
+      position: relative;
+    }
+
+    img{
+      width: 100%;
+      height: 100%;
+      transition: 1s;
+      transform: rotateY(90deg);
+    }
+    .black{
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+    li input[type="checkbox"]{
+      display: none;
+    }
+    li input[type="checkbox"]:checked ~ label img{
+      transform: rotateY(0deg) !important;
+    }
+  </style>
+</head>
+<body>
+  <h2>카드 뒤집기 게임</h2>
+
+  <ul>
+    <li>
+      <input type="checkbox" id="img1">
+      <label for="img1">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img2">
+      <label for="img2">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img3">
+      <label for="img3">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img4">
+      <label for="img4">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img5">
+      <label for="img5">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img6">
+      <label for="img6">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img7">
+      <label for="img7">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img8">
+      <label for="img8">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img9">
+      <label for="img9">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img10">
+      <label for="img10">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img11">
+      <label for="img11">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img12">
+      <label for="img12">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img13">
+      <label for="img13">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img14">
+      <label for="img14">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img15">
+      <label for="img15">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+    <li>
+      <input type="checkbox" id="img16">
+      <label for="img16">
+        <p class="black"></p>
+        <img src="./back1.jpg" alt="그림">
+      </label>      
+    </li>
+  </ul>
+
+  <input type="button" value="start" id="start">
+
+  <p id="clock"></p>
+  <p id="clock2"></p>
+  <p id="nth"></p>
+
+</body>
+</html>

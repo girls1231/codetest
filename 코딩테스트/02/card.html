@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>card</title>
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .profile_box{
+      padding: 10px;
+      display: grid;
+      grid-gap: 24px;
+      grid-template-columns: repeat(3,auto);
+      }
+    .profile_box .con{
+      height: fit-content;
+      border: 1px solid black;
+      border-radius: 5px;
+      width: 100%;
+    }
+    .img_box{
+      position: relative;
+    }
+    img{
+      width: 100%;
+      opacity: 0.5;
+    }
+    p{
+      padding: 0 5px;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      line-height: 30px;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+    .title{
+      -webkit-line-clamp: 1;
+      height: 30px;
+    }
+    .text{
+      -webkit-line-clamp: 2;
+      height: 60px;
+    }
+    input[type="checkbox"]{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+    input[type="checkbox"]:checked ~ label img{
+      opacity: 1;
+    }
+
+    .resize:checked ~ label img{
+      transform: scale(2);
+      opacity: 1;
+      border-radius: 5px;
+      z-index: 5;
+      position: absolute;
+      /* top: 0px;
+      left: 50%; */
+    }
+    @media screen and (max-width: 769px) {
+      .profile_box{
+      display: grid;
+      grid-gap: 24px;
+      grid-template-columns: repeat(2,auto);
+    }
+    }
+  </style>
+</head>
+<body>
+  <h2>card</h2>
+  <article class="profile_box">
+    <div class="con">
+      <div class="img_box">
+        <input type="checkbox" id="img_size1" class="resize">
+        <input type="checkbox">  
+        <label for="img_size1">
+          <img src="./back1.jpg" alt="프로필 이미지" class="profile_img">
+        </label>
+      </div>
+      <p class="title">title title title title title title title title title title title title</p>
+      <p class="text">text text text text text text text text text text text text text text text text text text text text text</p>
+    </div>
+    <div class="con">
+      <div class="img_box">
+        <input type="checkbox" id="img_size2" class="resize">
+        <input type="checkbox">  
+        <label for="img_size2">
+          <img src="" alt="프로필 이미지" class="profile_img">
+        </label>
+      </div>
+      <p class="title">title title title title title title title title title title title title</p>
+      <p class="text">text text text text text text text text text text text text text text text text text text text text text</p>
+    </div>
+    <div class="con">
+      <div class="img_box">
+        <input type="checkbox" id="img_size3" class="resize">
+        <input type="checkbox">  
+        <label for="img_size3">
+          <img src="./back1.jpg" alt="프로필 이미지" class="profile_img">
+        </label>
+      </div>
+      <p class="title">title title title title title title title title title title title title</p>
+      <p class="text">text text text text text text text text text text text text text text text text text text text text text</p>
+    </div>
+    <div class="con">
+      <div class="img_box">
+        <input type="checkbox" id="img_size4" class="resize">
+        <input type="checkbox">  
+        <label for="img_size4">
+          <img src="./back1.jpg" alt="프로필 이미지" class="profile_img">
+        </label>
+      </div>
+      <p class="title">title title title title title title title title title title title title</p>
+      <p class="text">text text text text text text text text text text text text text text text text text text text text text</p>
+    </div>
+    <div class="con">
+      <div class="img_box">
+        <input type="checkbox" id="img_size5" class="resize">
+        <input type="checkbox">  
+        <label for="img_size5">
+          <img src="./back1.jpg" alt="프로필 이미지" class="profile_img">
+        </label>
+      </div>
+      <p class="title">title title title title title title title title title title title title</p>
+      <p class="text">text text text text text text text text text text text text text text text text text text text text text</p>
+    </div>
+  </article>
+
+  <script>    
+    let img = document.querySelectorAll('img');
+
+    for(let i = 0; i <= img.length; i++){
+      let img_url = img[i].src;
+      // document.write(img_url+'<br>');
+
+      // 그냥 ''공백인 값을 넣으면 안되서... 공백값에 해당하는 주소를 직접 넣었습니다..
+      if (img_url === "http://127.0.0.1:5500/%E2%98%85%E2%98%85%E2%98%85%EC%BD%94%EB%94%A9%EA%B3%B5%EB%B6%80%E2%98%85%E2%98%85/%EC%BD%94%EB%94%A9%ED%85%8C%EC%8A%A4%ED%8A%B8/02/card.html") {
+        img[i].src = './back2.jpg'; 
+      }
+    }
+  </script>
+</body>
+</html>
